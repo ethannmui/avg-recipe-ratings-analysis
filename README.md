@@ -31,7 +31,8 @@ As a result, we are trying to predict the average rating given by people for a r
 ---
 ## Data Cleaning and Exploratory Data Analysis
 
-# Data Cleaning
+
+### Data Cleaning
 
 First, we cleaned our data by replacing all of the ratings of '0' given to a recipe by individual users with a 'NaN'. We preformed this process because logically users can't give a rating of 0 to a recipe. In most cases, users must rate recipes between a rating of 1 and 5. If a user doesn't include a rating for a recipe with their review, it is automatically assigned a '0'. To make sure that this fact wouldn't skew our 'avg_rating', we replaced all ratings with '0' with 'NaN'.
 
