@@ -64,7 +64,7 @@ The folllowing graph shows the distribution of the number of steps for a recipe 
  <iframe
  src="assets/distribution-calories.html"
  width="800"
- height="600"
+ height="450"
  frameborder="0"
  ></iframe>
 
@@ -72,7 +72,7 @@ The following graph shows the distribution of calories for a recipe in the whole
   <iframe
  src="assets/distribution-steps.html"
  width="800"
- height="600"
+ height="450"
  frameborder="0"
  ></iframe>
 
@@ -82,23 +82,35 @@ The following graph displays the possible association and relationship between n
  <iframe
  src="assets/relationship-steps-n-time.html"
  width="800"
- height="400"
+ height="450"
  frameborder="0"
  ></iframe>
 The following graph displays the relationship between number of number of minutes it takes to make the recipe and the average rating for the recipe. The graph displays how there is definitely an abundance of datapoints within the 0 - 1000 minutes area compared to the 1000+ minutes (x-axis) datapoints. However, we can notice in the graph that as the number of minutes increases the number of low ratings decreases overall, but not necessarily the number of low ratings compared to the total number of points in the each x-axis section (i.e 500-1000, 1000-1500, etc). This shows that possibly the number of minutes for a recipe doesn't affect its average rating. 
  <iframe
  src="assets/relationship-avgrating-n-time.html"
  width="800"
- height="400"
+ height="450"
  frameborder="0"
  ></iframe>
  
 ### Interesting Aggregates
 
+The following table shows the average time in minutes to make a recipe in each calorie group:
+- 0 - 100 calories
+- 101 - 200 calories
+- 201 - 300 calories
+- 301 - 500 calories
+- 501 - 1000 calories
+According to the table, it showcases how the average time to make the recipe tends to increase as the number of calories or the calorie group tends to increase. From a logical perspective, it makes sense that meals that might make up more calories would take longer to make since usually more calories equals more food.
+ <iframe
+ src="assets/avg-recipe-time-by-calories.html"
+ width="800"
+ height="450"
+ frameborder="0"
+ ></iframe>
+
 ### Imputation
-
-
-
+We did not impute any values because we didn't have any null or missing values in our feature columns. We instead cleaned our values in the dataset to help make our analysis more accurate. 
 
 ---
 ## Framing a Prediction Problem
@@ -111,7 +123,7 @@ Why these features were chosen:
 - 'Protein (PDV)': The protein information of a recipe reflects nutritional value. Higher protein meals may be rated higher because they are more filling, especially to health conscious cooks who are interested in high protein meals.
 - 'num_reviews': The number of reviews a recipe reviews reflects popularity. More reviews may indicate it is a popular recipe and will receive higher ratings. Or, as psychology shows, people tend to leave negative reviews after negative experiences, leading to lower ratings.
 
-The evaluation metric we will use is Mean Squared Error (MSE). MSE penalizes larger errors which will be helpful when predicting a concept such as user satisfaction. Larger errors are generally a result of outliers in the data, which is not a good reflection of the general relationship between recipe convenience, complexity, and nutritional value to its average rating. 
+The evaluation metric we will use is Mean Absolute Error (MAE). MAE is less sensitive to outliers in the data compared to other regression metrics such as MSE and RMSE. Even after cleaning the data and filtering out severe outliers, there are still natural outliers, such as long cooking times or high calorie counts. This will skew our MSE and RMSE, so using MAE will give us a more generalized understanding of how our model performs.
 
 ---
 ## Baseline Model
