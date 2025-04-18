@@ -31,6 +31,28 @@ As a result, we are trying to predict the average rating given by people for a r
 ---
 ## Data Cleaning and Exploratory Data Analysis
 
+# Data Cleaning
+
+First, we cleaned our data by replacing all of the ratings of '0' given to a recipe by individual users with a 'NaN'. We preformed this process because logically users can't give a rating of 0 to a recipe. In most cases, users must rate recipes between a rating of 1 and 5. If a user doesn't include a rating for a recipe with their review, it is automatically assigned a '0'. To make sure that this fact wouldn't skew our 'avg_rating', we replaced all ratings with '0' with 'NaN'.
+
+Currently, our data frame contains multiple records for a unique recipe because there could be different reviews and ratings given by unique users. As a result, we calculated the average rating given to each unique recipe and mapped to all records in our database. This allowed us to compare the value our model was predicting against the actual value for training and testing purposes. We also repeated this process to calculate the total number of reviews per unique recipe and then mapped this value to all records. 
+
+Next, we dropped all the duplicate recipe columns after this grouping and calculating process so we retained only one record per recipe. This is so we wouldn't count the same recipe id with the same average rating as a unique point which could skew our prediction model. For example, if one recipe had a bunch of reviews and we mapped the same average rating to all those recipe's records. 
+
+Next, we also split our original nutrition column into more specific columns: 'Calories', 'Total Fat (PDV)', 'Sugar (PDV)', 'Sodium (PDV)', 'Protein (PDV)', 'Saturated Fat (PDV)', 'Carbohydrates (PDV)' to get a better visualization of the nutrition values per recipe. However, for our prediction problem, we will be focusing specifically on 'Calories' and 'Protein (PDV)'.
+
+Lastly, we filtered any records with outlier values that we deemed abnormal and illogical by human analysis. We removed records that had: 
+- 'minutes' > 4320 (i.e a recipe that took over 3 days to make)
+- 'n_steps' > 30 (i.e a recipe that has over 30 steps)
+- 'Calories' > 2000 (i.e a recipe that has over 2000 calories)
+- 'Protein (PDV) > 300 (i.e a recipe that has over 300 protein)
+
+Finally, we filtered our data table to only retain the columns that we would need for our predictive model and visualization. After cleaning, our datafame has 81233 rows and 8 columns. 
+
+# Univariate Analysis
+
+# Bivariate
+
 
 
 ---
