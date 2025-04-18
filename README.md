@@ -101,6 +101,7 @@ The following table shows the average time in minutes to make a recipe in each c
 - 201 - 300 calories
 - 301 - 500 calories
 - 501 - 1000 calories
+
 According to the table, it showcases how the average time to make the recipe tends to increase as the number of calories or the calorie group tends to increase. From a logical perspective, it makes sense that meals that might make up more calories would take longer to make since usually more calories equals more food.
  <iframe
  src="assets/avg-recipe-time-by-calories.html"
@@ -116,19 +117,27 @@ We did not impute any values because we didn't have any null or missing values i
 ## Framing a Prediction Problem
 The question we want to pursue is "How do convenience, complexity, and nutritional value of a recipe impact its overall rating?" The response variable we are predicting is the average rating of a recipe, so this is a regression problem. Average rating can have a value anywhere from 0 to 5, which is a continuous numerical variable. We chose to predict this variable because average ratings are a good way to measure how well-perceived a recipe is. The selected features to help us answer this question are 'minutes,' 'n_steps,' 'Calories,' 'Protein (PDV),' and 'num_reviews.'
 
-Why these features were chosen:
-- 'minutes': The time taken reflects time investment. Shorter recipes may receive higher ratings because of their convenience. Longer recipes may receive higher ratings because of quality.
-- 'n_steps': The number of steps required reflects complexity. More steps indicates a recipe is harder to follow or more impressive.
-- 'Calories': The calorie information of a recipe reflects meal satisfaction. Higher calorie meals may be rated higher because they are more filling, or lower calories meals because they are seen as healthier.
-- 'Protein (PDV)': The protein information of a recipe reflects nutritional value. Higher protein meals may be rated higher because they are more filling, especially to health conscious cooks who are interested in high protein meals.
-- 'num_reviews': The number of reviews a recipe reviews reflects popularity. More reviews may indicate it is a popular recipe and will receive higher ratings. Or, as psychology shows, people tend to leave negative reviews after negative experiences, leading to lower ratings.
-
 The evaluation metric we will use is Mean Absolute Error (MAE). MAE is less sensitive to outliers in the data compared to other regression metrics such as MSE and RMSE. Even after cleaning the data and filtering out severe outliers, there are still natural outliers, such as long cooking times or high calorie counts. This will skew our MSE and RMSE, so using MAE will give us a more generalized understanding of how our model performs.
 
 ---
 ## Baseline Model
 
+Our model is a linear regression model. We split our dataset into subsets: 'X_train', 'X_test', 'y_train', and 'y_test' where 'X_train' and 'X_test' include the columns 'n_steps' and 'minutes', and 'y_train' and 'y_test' contain 'avg_rating' column. We aim to minimize the minimum absolute error of our predicted average value against the recipe's actual average rating value. 
+
+The features in our baseline model are all quantitative. In our dataset, the 'n_steps' is a quantitative discrete value specifically because you can't have a decimal number or fraction for the number of steps. The "minutes" column is also a quantitative discrete value because in our database is represented by only integers. 
+
+We understand that standardizing the numerical features in our linear regression model has no affect on MSE or change the predictions because it is scale-invariant. The standardizing allows us directly compare magnitudes of the features because originally their units are different. It basically makes the coefficients easier to compare. 
+
+We measured the performance of our model based on the Mean Absolute Error (MAE). We trained our model on 80% of the the dataset and tested our model's performance on the other 20% of the dataset. Our reported mean absolute error is 0.4666. This means our model's prediction is off by 0.4666 compared to the actual average rating. I would say our model is slightly subobtimal because both 'n_steps' and 'minutes' kind of capture the same predictive reasoning we had for why these features might affect the average rating of a recipe. We don't believe these features capture the different dimensions or possible reasons that play into the average rating of a recipe. We hope to solve this problem through our final model. 
 
 
 ---
 ## Final Model
+
+For our final model, we added three new features: 'Calories,' 'Protein (PDV),' and 'num_reviews.'
+
+- 'Calories': The calorie information of a recipe reflects meal satisfaction. Higher calorie meals may be rated higher because they are more filling. Or, lower calories meals may be rated higher because they are seen as healthier.
+- 'Protein (PDV)': The protein information of a recipe reflects nutritional value. Higher protein meals may be rated higher because they are more filling, especially to health conscious cooks who are interested in high protein meals.
+- 'num_reviews': The number of reviews a recipe receives reflects popularity. More reviews may indicate it is a popular recipe and will receive higher ratings. Or, as psychology shows, people tend to leave negative reviews after negative experiences, which will lead to lower ratings.A
+
+These three features all introduce meaningful context to the satisfaction and nutrition of a recipe, which can impact the recipe's average rating. We hypothesized that adding these to the final model would help improve model performance.
