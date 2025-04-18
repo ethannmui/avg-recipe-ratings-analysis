@@ -27,6 +27,7 @@ As a result, we are trying to predict the average rating given by people for a r
 ***minutes***: The total number of minutes it takes to complete a given recipe.
 
 ***Calories***: The number of calories for a given recipe. 
+
 ---
 ## Data Cleaning and Exploratory Data Analysis
 
