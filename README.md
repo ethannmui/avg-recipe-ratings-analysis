@@ -47,11 +47,21 @@ Lastly, we filtered any records with outlier values that we deemed abnormal and 
 - 'Calories' > 2000 (i.e a recipe that has over 2000 calories)
 - 'Protein (PDV) > 300 (i.e a recipe that has over 300 protein)
 
-Finally, we filtered our data table to only retain the columns that we would need for our predictive model and visualization. After cleaning, our datafame has 81233 rows and 8 columns. 
+Finally, we filtered our data table to only retain the columns that we would need for our predictive model and visualization. After cleaning, our datafame has 81233 rows and 8 columns.
+
+|     id | name                                 |   minutes |   n_steps |   Calories |   Protein (PDV) |   num_reviews |   avg_rating |
+|-------:|:-------------------------------------|----------:|----------:|-----------:|----------------:|--------------:|-------------:|
+| 333281 | 1 brownies in the world    best ever |        40 |        10 |      138.4 |               3 |             1 |            4 |
+| 453467 | 1 in canada chocolate chip cookies   |        45 |        12 |      595.1 |              13 |             1 |            5 |
+| 306168 | 412 broccoli casserole               |        40 |         6 |      194.8 |              22 |             4 |            5 |
+| 286009 | millionaire pound cake               |       120 |         7 |      878.3 |              20 |             1 |            5 |
+| 475785 | 2000 meatloaf                        |        90 |        17 |      267   |              29 |             2 |            5 |
 
 # Univariate Analysis
 
-# Bivariate
+# Bivariate Analysis
+
+
 
 
 
