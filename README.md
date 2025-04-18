@@ -58,10 +58,14 @@ Finally, we filtered our data table to only retain the columns that we would nee
 | 286009 | millionaire pound cake               |       120 |         7 |      878.3 |              20 |             1 |            5 |
 | 475785 | 2000 meatloaf                        |        90 |        17 |      267   |              29 |             2 |            5 |
 
-# Univariate Analysis
+### Univariate Analysis
+test
 
-# Bivariate Analysis
+### Bivariate Analysis
 
+### Interesting Aggregates
+
+### Imputation
 
 
 
