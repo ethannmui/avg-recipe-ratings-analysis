@@ -63,7 +63,7 @@ Finally, we filtered our data table to only retain the columns that we would nee
 The folllowing graph shows the distribution of the number of steps for a recipe in the whole dataset. There is definitely a right skew in our dataset which makes sense because logically it makes sense for recipes to have 5 - 12 steps as opposed to 15-20+. This distribution of the number of steps for a recipe could give insight on whether people rate recipes higher if they have less or more steps. 
 
  <iframe
- src="assets/file-name.html"
+ src="assets/distribution-calories.html"
  width="800"
  height="600"
  frameborder="0"
@@ -72,7 +72,7 @@ The folllowing graph shows the distribution of the number of steps for a recipe 
 The following graph shows the distribution of calories for a recipe in the whole dataset. Again, there is a right skew in our dataset because it makes more sense for a recipe to have 200 - 500 calories as opposed 1000+ calories. The distribution of calories could give possible insight on the distribution of average ratings. For example, if how many calories a recipe has influences the rating they give that recipe.
 
   <iframe
- src="assets/file-name.html"
+ src="assets/distribution-steps.html"
  width="800"
  height="600"
  frameborder="0"
