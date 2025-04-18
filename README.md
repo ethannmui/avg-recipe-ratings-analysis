@@ -59,7 +59,24 @@ Finally, we filtered our data table to only retain the columns that we would nee
 | 475785 | 2000 meatloaf                        |        90 |        17 |      267   |              29 |             2 |            5 |
 
 ### Univariate Analysis
-test
+
+The folllowing graph shows the distribution of the number of steps for a recipe in the whole dataset. There is definitely a right skew in our dataset which makes sense because logically it makes sense for recipes to have 5 - 12 steps as opposed to 15-20+.
+
+ <iframe
+ src="assets/file-name.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+The following graph shows the distribution of calories for a recipe in the whole dataset. Again, there is a right skew in our dataset because it makes more sense for a recipe to have 200 - 500 calories as opposed 1000+ calories. 
+
+  <iframe
+ src="assets/file-name.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
 
 ### Bivariate Analysis
 
