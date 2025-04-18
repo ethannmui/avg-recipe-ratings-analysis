@@ -88,12 +88,12 @@ The following graph displays the possible association and relationship between n
 
 The following graph displays the relationship between number of number of minutes it takes to make the recipe and the average rating for the recipe. The graph displays how there is definitely an abundance of datapoints within the 0 - 1000 minutes area compared to the 1000+ minutes (x-axis) datapoints. However, we can notice in the graph that as the number of minutes increases the number of low ratings decreases overall, but not necessarily the number of low ratings compared to the total number of points in the each x-axis section (i.e 500-1000, 1000-1500, etc). This shows that possibly the number of minutes for a recipe doesn't affect its average rating. 
  <iframe
- src="assets/avgrating-n-time.html"
+ src="assets/relationshipavgrating-n-time.html"
  width="800"
  height="600"
  frameborder="0"
  ></iframe>
-
+ 
 ### Interesting Aggregates
 
 ### Imputation
@@ -112,7 +112,7 @@ Why these features were chosen:
 - 'Protein (PDV)': The protein information of a recipe reflects nutritional value. Higher protein meals may be rated higher because they are more filling, especially to health conscious cooks who are interested in high protein meals.
 - 'num_reviews': The number of reviews a recipe reviews reflects popularity. More reviews may indicate it is a popular recipe and will receive higher ratings. Or, as psychology shows, people tend to leave negative reviews after negative experiences, leading to lower ratings.
 
-The evaluation metric we will use is Mean Squared Error (MSE). MSE penalizes larger errors which will be helpful when predicting a concept such as user satisfaction. Larger errors are generally a result of outliers in the data, which is not a good reflection of the general relationship between recipe convenience, complexity, and nutritional value to its average rating.
+The evaluation metric we will use is Mean Squared Error (MSE). MSE penalizes larger errors which will be helpful when predicting a concept such as user satisfaction. Larger errors are generally a result of outliers in the data, which is not a good reflection of the general relationship between recipe convenience, complexity, and nutritional value to its average rating. 
 
 ---
 ## Baseline Model
