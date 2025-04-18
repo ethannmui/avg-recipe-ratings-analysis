@@ -61,7 +61,6 @@ Finally, we filtered our data table to only retain the columns that we would nee
 ### Univariate Analysis
 
 The folllowing graph shows the distribution of the number of steps for a recipe in the whole dataset. There is definitely a right skew in our dataset which makes sense because logically it makes sense for recipes to have 5 - 12 steps as opposed to 15-20+. This distribution of the number of steps for a recipe could give insight on whether people rate recipes higher if they have less or more steps. 
-
  <iframe
  src="assets/distribution-calories.html"
  width="800"
@@ -70,7 +69,6 @@ The folllowing graph shows the distribution of the number of steps for a recipe 
  ></iframe>
 
 The following graph shows the distribution of calories for a recipe in the whole dataset. Again, there is a right skew in our dataset because it makes more sense for a recipe to have 200 - 500 calories as opposed 1000+ calories. The distribution of calories could give possible insight on the distribution of average ratings. For example, if how many calories a recipe has influences the rating they give that recipe.
-
   <iframe
  src="assets/distribution-steps.html"
  width="800"
@@ -80,6 +78,21 @@ The following graph shows the distribution of calories for a recipe in the whole
 
 ### Bivariate Analysis
 
+The following graph displays the possible association and relationship between number of steps and time to make. The graph has a pretty even distribution and displays that there isn't too strong of an association between number of steps and minutes to make the recipe. This could give insight that the number of steps doesn't tell too much detail because different steps could take different amounts of time which is why number of steps doesn't influence minutes to make recipe strongly.
+ <iframe
+ src="assets/relationship-steps-n-time.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+The following graph displays the relationship between number of number of minutes it takes to make the recipe and the average rating for the recipe. The graph displays how there is definitely an abundance of datapoints within the 0 - 1000 minutes area compared to the 1000+ minutes (x-axis) datapoints. However, we can notice in the graph that as the number of minutes increases the number of low ratings decreases overall, but not necessarily the number of low ratings compared to the total number of points in the each x-axis section (i.e 500-1000, 1000-1500, etc). This shows that possibly the number of minutes for a recipe doesn't affect its average rating. 
+ <iframe
+ src="assets/avgrating-n-time.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
 
 
 ### Interesting Aggregates
@@ -91,7 +104,16 @@ The following graph shows the distribution of calories for a recipe in the whole
 
 ---
 ## Framing a Prediction Problem
+The question we want to pursue is "How do convenience, complexity, and nutritional value of a recipe impact its overall rating?" The response variable we are predicting is the average rating of a recipe, so this is a regression problem. Average rating can have a value anywhere from 0 to 5, which is a continuous numerical variable. We chose to predict this variable because average ratings are a good way to measure how well-perceived a recipe is. The selected features to help us answer this question are 'minutes,' 'n_steps,' 'Calories,' 'Protein (PDV),' and 'num_reviews.'
 
+Why these features were chosen:
+- 'minutes': The time taken reflects time investment. Shorter recipes may receive higher ratings because of their convenience. Longer recipes may receive higher ratings because of quality.
+- 'n_steps': The number of steps required reflects complexity. More steps indicates a recipe is harder to follow or more impressive.
+- 'Calories': The calorie information of a recipe reflects meal satisfaction. Higher calorie meals may be rated higher because they are more filling, or lower calories meals because they are seen as healthier.
+- 'Protein (PDV)': The protein information of a recipe reflects nutritional value. Higher protein meals may be rated higher because they are more filling, especially to health conscious cooks who are interested in high protein meals.
+- 'num_reviews': The number of reviews a recipe reviews reflects popularity. More reviews may indicate it is a popular recipe and will receive higher ratings. Or, as psychology shows, people tend to leave negative reviews after negative experiences, leading to lower ratings.
+
+The evaluation metric we will use is Mean Squared Error (MSE). MSE penalizes larger errors which will be helpful when predicting a concept such as user satisfaction. Larger errors are generally a result of outliers in the data, which is not a good reflection of the general relationship between recipe convenience, complexity, and nutritional value to its average rating.
 
 ---
 ## Baseline Model
