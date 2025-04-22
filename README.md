@@ -1,5 +1,6 @@
 # What determines the average rating of a recipe?
 **Name(s):** Ethan Mui, Daniel Yang
+
 **Email(s):** ethanmui@umich.edu, ydaniel@umich.edu
 ---
 ## Introduction
