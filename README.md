@@ -1,5 +1,6 @@
 # What determines the average rating of a recipe?
 **Name(s):** Ethan Mui, Daniel Yang
+**Email(s):** ethanmui@umich.edu, ydaniel@umich.edu
 ---
 ## Introduction
 Our data is the Recipe and Ratings dataset. The 'recipe' part consists of numerical values like nutrition values, number of steps, minutes, and ingredients to make the recipe. It also consists of categorical parts like tags, description of the recipe, and ingredients list. On the 'ratings' section, there are ratings and reviews given by user ids for specific recipes. Just like many other people, we are both foodies. Average rating value determined by numerous people can be fair assessment of the quality of the recipe. This average rating can help consumers choose high-quality recipes to make whether that's tasty, efficient, or simple. 
